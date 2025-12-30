@@ -17,16 +17,20 @@ builds:
     ignore:
       - goos: windows
         goarch: arm64
+    flags:
+      - -tags=stdjson
     ldflags:
       - -s -w -X main.version={{.Version}}
 
 archives:
   - id: default
-    format: tar.gz
+    formats:
+      - tar.gz
     name_template: "dodo-engine_{{ .Os }}_{{ .Arch }}"
     format_overrides:
       - goos: windows
-        format: zip
+        formats:
+          - zip
 
 checksum:
   name_template: 'checksums.txt'
