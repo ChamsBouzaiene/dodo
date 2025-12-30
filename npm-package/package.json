@@ -1,0 +1,37 @@
+{
+    "name": "dodo-ai",
+    "version": "0.1.0",
+    "description": "An open-source AI coding agent built in Go",
+    "author": "Chams Bouzaiene",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ChamsBouzaiene/dodo.git"
+    },
+    "homepage": "https://github.com/ChamsBouzaiene/dodo#readme",
+    "bugs": {
+        "url": "https://github.com/ChamsBouzaiene/dodo/issues"
+    },
+    "keywords": [
+        "ai",
+        "coding-agent",
+        "llm",
+        "cli",
+        "openai",
+        "claude",
+        "gemini"
+    ],
+    "bin": {
+        "dodo": "./bin/dodo.js"
+    },
+    "scripts": {
+        "postinstall": "node ./scripts/install-engine.js"
+    },
+    "files": [
+        "bin/",
+        "scripts/"
+    ],
+    "engines": {
+        "node": ">=18"
+    }
+}

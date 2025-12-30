@@ -1,0 +1,49 @@
+{
+  "name": "dodo-ai",
+  "version": "0.1.0",
+  "description": "AI coding assistant for your terminal",
+  "type": "module",
+  "bin": {
+    "dodo": "scripts/cli.js"
+  },
+  "files": [
+    "scripts",
+    "dist",
+    "engine"
+  ],
+  "scripts": {
+    "dev": "tsx src/index.tsx",
+    "simulation": "tsx src/simulation.tsx",
+    "simulation_simple": "tsx src/simulation_simple.tsx",
+    "simulation_throttled": "tsx src/simulation_throttled.tsx",
+    "simulation_fixed": "tsx src/simulation_fixed.tsx",
+    "simulation_lifecycle": "tsx src/simulation_lifecycle.tsx",
+    "simulation_no_input": "tsx src/simulation_no_input.tsx",
+    "simulation_minimal": "tsx src/simulation_minimal.tsx",
+    "simulation_providers": "tsx src/simulation_providers.tsx",
+    "simulation_rendering": "tsx src/simulation_rendering.tsx",
+    "build": "tsup src/index.tsx --format esm --dts --out-dir dist",
+    "prepublishOnly": "npm run build",
+    "lint": "eslint .",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "ink": "4.4.1",
+    "ink-text-input": "5.0.1",
+    "marked": "^17.0.1",
+    "react": "18.3.1",
+    "react-hook-form": "^7.68.0",
+    "zod": "^4.1.13"
+  },
+  "devDependencies": {
+    "@types/node": "22.7.4",
+    "@types/react": "18.3.3",
+    "ink-testing-library": "^4.0.0",
+    "node-pty": "^1.0.0",
+    "tsup": "8.2.4",
+    "tsx": "4.19.0",
+    "typescript": "5.6.3",
+    "vitest": "^4.0.14"
+  }
+}

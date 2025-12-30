@@ -1,0 +1,43 @@
+# Binaries
+dodo
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool
+*.out
+
+# Dependency directories
+vendor/
+
+# Go workspace file
+go.work
+
+# Environment variables
+.env
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+bin/
+!npm-package/bin/
+dist/
+node_modules/
+ink-ui/GOOGLE_VIRTUALIZATION_ANALYSIS.md
+
+# Logs
+*.log
