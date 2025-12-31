@@ -1,10 +1,14 @@
 #!/usr/bin/env node
 
-const { spawn } = require('child_process');
-const path = require('path');
-const os = require('os');
-const fs = require('fs');
+import { spawn } from 'child_process';
+import path from 'path';
+import os from 'os';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+// 1. Ensure Engine is Installed
 function getBinaryPath() {
     const homeDir = os.homedir();
     const ext = os.platform() === 'win32' ? '.exe' : '';
@@ -15,23 +19,17 @@ const binaryPath = getBinaryPath();
 
 if (!fs.existsSync(binaryPath)) {
     console.error('dodo-engine not found. Running installer...');
-    require('../scripts/install-engine.js');
-    process.exit(0);
+    try {
+        const installScript = path.join(__dirname, '../scripts/install-engine.js');
+        const { execSync } = require('child_process');
+        execSync(`node "${installScript}"`, { stdio: 'inherit' });
+    } catch (e) {
+        // Ignore if failing, UI might handle it or just fail later
+    }
 }
 
-// Pass all arguments to the engine
-const args = process.argv.slice(2);
-
-const child = spawn(binaryPath, args, {
-    stdio: 'inherit',
-    env: process.env
-});
-
-child.on('error', (err) => {
-    console.error(`Failed to start dodo-engine: ${err.message}`);
+// 2. Start the UI (which is now compiled into ../dist/index.js)
+import('../dist/index.js').catch(err => {
+    console.error('Failed to start Dodo UI:', err);
     process.exit(1);
-});
-
-child.on('close', (code) => {
-    process.exit(code || 0);
 });

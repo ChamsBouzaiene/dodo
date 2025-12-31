@@ -25,7 +25,26 @@
         "dodo": "./bin/dodo.js"
     },
     "scripts": {
-        "postinstall": "node ./scripts/install-engine.js"
+        "postinstall": "node ./scripts/install-engine.js",
+        "build": "tsup src/index.tsx --format esm --out-dir dist",
+        "prepublishOnly": "npm run build"
+    },
+    "dependencies": {
+        "tar": "^6.2.0",
+        "adm-zip": "^0.5.10",
+        "ink": "4.4.1",
+        "ink-text-input": "5.0.1",
+        "marked": "^14.1.1",
+        "react": "18.3.1",
+        "react-hook-form": "^7.53.0",
+        "zod": "^3.23.8",
+        "@hookform/resolvers": "^3.9.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20.0.0",
+        "@types/react": "^18.2.0",
+        "tsup": "^8.0.2",
+        "typescript": "^5.4.5"
     },
     "files": [
         "bin/",
@@ -35,3 +54,4 @@
         "node": ">=18"
     }
 }
+```
