@@ -5,11 +5,6 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 const os = require('os');
-const fs = require('fs');
-const path = require('path');
-const { execSync } = require('child_process');
-const os = require('os');
-
 // Dependencies that might not be installed yet during CI bootstrap
 let tar, AdmZip;
 try {
