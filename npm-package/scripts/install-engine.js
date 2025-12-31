@@ -5,8 +5,19 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 const os = require('os');
-const zlib = require('zlib');
-const tar = require('tar');
+const fs = require('fs');
+const path = require('path');
+const { execSync } = require('child_process');
+const os = require('os');
+
+// Dependencies that might not be installed yet during CI bootstrap
+let tar, AdmZip;
+try {
+    tar = require('tar');
+    AdmZip = require('adm-zip');
+} catch (e) {
+    // Graceful fallback or ignore if just bootstrapping
+}
 
 const REPO_OWNER = 'ChamsBouzaiene';
 const REPO_NAME = 'dodo';
