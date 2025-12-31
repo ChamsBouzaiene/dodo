@@ -31,5 +31,19 @@ if (!fs.existsSync(binaryPath)) {
 // 2. Start the UI (which is now compiled into ../dist/index.js)
 import('../dist/index.js').catch(err => {
     console.error('Failed to start Dodo UI:', err);
+    console.error('Debug Info:');
+    console.error('__dirname:', __dirname);
+    try {
+        const rootDir = path.join(__dirname, '..');
+        console.error('Package root contents:', fs.readdirSync(rootDir));
+        const distDir = path.join(rootDir, 'dist');
+        if (fs.existsSync(distDir)) {
+            console.error('dist contents:', fs.readdirSync(distDir));
+        } else {
+            console.error('dist directory does not exist');
+        }
+    } catch (e) {
+        console.error('Failed to list directories:', e);
+    }
     process.exit(1);
 });
