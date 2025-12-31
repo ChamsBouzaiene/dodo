@@ -9,14 +9,7 @@ import { createRequire } from 'module';
 
 const require = createRequire(import.meta.url);
 
-// Dependencies that might not be installed yet during CI bootstrap
-let tar, AdmZip;
-try {
-    tar = await import('tar');
-    AdmZip = (await import('adm-zip')).default;
-} catch (e) {
-    // Graceful fallback or ignore if just bootstrapping
-}
+
 
 const REPO_OWNER = 'ChamsBouzaiene';
 const REPO_NAME = 'dodo';
