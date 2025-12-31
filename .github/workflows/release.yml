@@ -16,7 +16,7 @@ jobs:
           - os: ubuntu-latest
             goos: linux
             goarch: amd64
-          - os: ubuntu-24.04-arm64
+          - os: ubuntu-latest
             goos: linux
             goarch: arm64
           - os: macos-latest
@@ -40,6 +40,12 @@ jobs:
         with:
           go-version: '1.23'
 
+      - name: Install Cross-Compiler (Linux ARM64)
+        if: matrix.goos == 'linux' && matrix.goarch == 'arm64'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-aarch64-linux-gnu
+
       - name: Get version
         id: version
         shell: bash
@@ -50,13 +56,19 @@ jobs:
         env:
           GOOS: ${{ matrix.goos }}
           GOARCH: ${{ matrix.goarch }}
-          CGO_ENABLED: 0
+          CGO_ENABLED: 1
         run: |
           EXT=""
           if [ "${{ matrix.goos }}" = "windows" ]; then
             EXT=".exe"
           fi
-          go build -ldflags="-s -w -checklinkname=0 -X main.version=${{ steps.version.outputs.VERSION }}" \
+          
+          # Set CC for cross-compilation if needed
+          if [ "${{ matrix.goos }}" = "linux" ] && [ "${{ matrix.goarch }}" = "arm64" ]; then
+            export CC=aarch64-linux-gnu-gcc
+          fi
+
+          go build -ldflags="-s -w -X main.version=${{ steps.version.outputs.VERSION }}" \
             -o dodo-engine${EXT} ./cmd/repl
 
       - name: Create archive (Unix)
@@ -119,6 +131,14 @@ jobs:
       - name: Update package version
         working-directory: ./npm-package
         run: npm version ${{ steps.version.outputs.VERSION }} --no-git-tag-version
+
+      - name: Install dependencies
+        working-directory: ./npm-package
+        run: npm install
+
+      - name: Build
+        working-directory: ./npm-package
+        run: npm run build --if-present
 
       - name: Publish to npm
         working-directory: ./npm-package
