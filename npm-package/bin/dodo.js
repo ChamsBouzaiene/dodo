@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { spawn } from 'child_process';
+import { spawn, execSync } from 'child_process';
 import path from 'path';
 import os from 'os';
 import fs from 'fs';
@@ -21,7 +21,6 @@ if (!fs.existsSync(binaryPath)) {
     console.error('dodo-engine not found. Running installer...');
     try {
         const installScript = path.join(__dirname, '../scripts/install-engine.js');
-        const { execSync } = require('child_process');
         execSync(`node "${installScript}"`, { stdio: 'inherit' });
     } catch (e) {
         // Ignore if failing, UI might handle it or just fail later
