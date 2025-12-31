@@ -130,7 +130,7 @@ jobs:
 
       - name: Update package version
         working-directory: ./npm-package
-        run: npm version ${{ steps.version.outputs.VERSION }} --no-git-tag-version
+        run: npm version ${{ steps.version.outputs.VERSION }} --no-git-tag-version --allow-same-version
 
       - name: Install dependencies
         working-directory: ./npm-package
