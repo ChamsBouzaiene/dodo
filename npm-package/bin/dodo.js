@@ -27,8 +27,8 @@ if (!fs.existsSync(binaryPath)) {
     }
 }
 
-// 2. Start the UI (which is now compiled into ../dist/index.mjs)
-import('../dist/index.mjs').catch(err => {
+// 2. Start the UI (which is now compiled into ../dist/index.js)
+import('../dist/index.js').catch(err => {
     console.error('Failed to start Dodo UI:', err);
     console.error('Debug Info:');
     console.error('__dirname:', __dirname);
