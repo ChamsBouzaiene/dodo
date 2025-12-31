@@ -1,8 +1,9 @@
 import React from "react";
 import { Box, Text } from "ink";
-/**
- * Header component displaying the application logo/banner.
- */
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const pkg = require('../../../package.json');
+
 export const Header: React.FC = () => {
   return (
     <Box flexDirection="column" paddingX={1} marginBottom={1}>
@@ -17,7 +18,7 @@ export const Header: React.FC = () => {
  ░███    ░███░███      ░███ ░███    ░███░███      ░███
  ░███    ███ ░░███     ███  ░███    ███ ░░███     ███ 
  ██████████   ░░░███████░   ██████████   ░░░███████░     
-░░░░░░░░░░      ░░░░░░░    ░░░░░░░░░░      ░░░░░░░     v1.0.0
+░░░░░░░░░░      ░░░░░░░    ░░░░░░░░░░      ░░░░░░░     v${pkg.version}
  `}
 
 
