@@ -36,6 +36,7 @@ Thumbs.db
 bin/
 !npm-package/bin/
 dist/
+!npm-package/dist/
 node_modules/
 ink-ui/GOOGLE_VIRTUALIZATION_ANALYSIS.md
 
