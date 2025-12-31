@@ -82,7 +82,23 @@ The engine handles all agent logic: planning, tool orchestration, and LLM commun
 - **LLM API Key**: OpenAI API key or other provider
 - **Docker** (optional, recommended): For secure command execution sandboxing
 
-### 1. Build the Engine
+### Installation (Recommended)
+
+**Install via npm:**
+```bash
+npm install -g dodo-ai
+```
+
+**Run in any project:**
+```bash
+dodo
+```
+
+### Build from Source (Advanced)
+
+If you want to contribute or modify the engine:
+
+#### 1. Build the Engine
 
 ```bash
 # Clone and enter the project
@@ -244,7 +260,22 @@ Current: Analyzing the codebase structure...
 
 ## Configuration
 
-### Environment Variables
+### Setup Wizard (Recommended)
+
+The easiest way to configure Dodo is using the interactive wizard. Run Dodo and type:
+
+```bash
+/conf
+```
+
+Or select **Configure** from the main menu. This will guide you through:
+- Selecting your LLM provider (OpenAI, Anthropic, Gemini, Local)
+- Entering API keys
+- Setting up Docker sandboxing
+
+The configuration is saved to `~/.dodo/config.yaml`.
+
+### Environment Variables (Manual)
 
 #### LLM Configuration
 

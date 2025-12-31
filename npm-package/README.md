@@ -27,6 +27,27 @@ cd my-project
 dodo
 ```
 
+### 🔄 Keep Up to Date
+To update to the latest version of Dodo, simply run:
+```bash
+npm install -g dodo-ai@latest
+```
+
+### ⚙️ Configuration & LLMs
+Dodo works with your favorite LLM. You can configure it easily using the built-in wizard:
+
+1. **Run the Setup Wizard**:
+   Inside Dodo, type `/conf` (or select "Start New Session" -> "Configure").
+
+2. **Choose your Provider**:
+   - **OpenAI** (GPT-4o, o1-preview)
+   - **Anthropic** (Claude 3.5 Sonnet)
+   - **Google** (Gemini 1.5 Pro)
+   - **Local Models** (Ollama, LM Studio via OpenAI-compatible endpoint)
+
+3. **Enter API Keys**:
+   The wizard will securely save your keys locally in `~/.dodo/config.yaml`.
+
 ## ✨ Key Features
 
 - **🛡️ Sandboxed Execution**: All agent commands run in a secure, isolated Docker container (or controlled local environment).
