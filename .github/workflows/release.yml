@@ -68,7 +68,7 @@ jobs:
             export CC=aarch64-linux-gnu-gcc
           fi
 
-          go build -ldflags="-s -w -X main.version=${{ steps.version.outputs.VERSION }}" \
+          go build -ldflags="-s -w -checklinkname=0 -X main.version=${{ steps.version.outputs.VERSION }}" \
             -o dodo-engine${EXT} ./cmd/repl
 
       - name: Create archive (Unix)
