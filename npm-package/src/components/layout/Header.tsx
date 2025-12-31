@@ -1,8 +1,7 @@
 import React from "react";
 import { Box, Text } from "ink";
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-const pkg = require('../../../package.json');
+// @ts-ignore
+const version = process.env.CLI_VERSION || '0.0.0';
 
 export const Header: React.FC = () => {
   return (
@@ -18,7 +17,7 @@ export const Header: React.FC = () => {
  ░███    ░███░███      ░███ ░███    ░███░███      ░███
  ░███    ███ ░░███     ███  ░███    ███ ░░███     ███ 
  ██████████   ░░░███████░   ██████████   ░░░███████░     
-░░░░░░░░░░      ░░░░░░░    ░░░░░░░░░░      ░░░░░░░     v${pkg.version}
+░░░░░░░░░░      ░░░░░░░    ░░░░░░░░░░      ░░░░░░░     v${version}
  `}
 
 

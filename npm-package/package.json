@@ -27,7 +27,7 @@
     },
     "scripts": {
         "postinstall": "node ./scripts/install-engine.js",
-        "build": "tsup src/index.tsx --format esm --out-dir dist",
+        "build": "tsup",
         "prepublishOnly": "npm run build"
     },
     "dependencies": {
