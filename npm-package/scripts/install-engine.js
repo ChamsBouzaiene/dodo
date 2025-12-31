@@ -1,15 +1,19 @@
 #!/usr/bin/env node
 
-const https = require('https');
-const fs = require('fs');
-const path = require('path');
-const { execSync } = require('child_process');
-const os = require('os');
+import https from 'https';
+import fs from 'fs';
+import path from 'path';
+import { execSync } from 'child_process';
+import os from 'os';
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
+
 // Dependencies that might not be installed yet during CI bootstrap
 let tar, AdmZip;
 try {
-    tar = require('tar');
-    AdmZip = require('adm-zip');
+    tar = await import('tar');
+    AdmZip = (await import('adm-zip')).default;
 } catch (e) {
     // Graceful fallback or ignore if just bootstrapping
 }
