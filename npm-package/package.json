@@ -4,6 +4,7 @@
     "description": "An open-source AI coding agent built in Go",
     "author": "Chams Bouzaiene",
     "license": "MIT",
+    "type": "module",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/ChamsBouzaiene/dodo.git"

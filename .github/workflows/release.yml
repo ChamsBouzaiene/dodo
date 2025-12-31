@@ -138,7 +138,7 @@ jobs:
 
       - name: Build
         working-directory: ./npm-package
-        run: npm run build --if-present
+        run: npm run build --verbose
 
       - name: Publish to npm
         working-directory: ./npm-package
