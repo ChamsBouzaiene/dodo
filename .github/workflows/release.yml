@@ -50,13 +50,13 @@ jobs:
         env:
           GOOS: ${{ matrix.goos }}
           GOARCH: ${{ matrix.goarch }}
-          CGO_ENABLED: 1
+          CGO_ENABLED: 0
         run: |
           EXT=""
           if [ "${{ matrix.goos }}" = "windows" ]; then
             EXT=".exe"
           fi
-          go build -ldflags="-s -w -X main.version=${{ steps.version.outputs.VERSION }}" \
+          go build -ldflags="-s -w -checklinkname=0 -X main.version=${{ steps.version.outputs.VERSION }}" \
             -o dodo-engine${EXT} ./cmd/repl
 
       - name: Create archive (Unix)
