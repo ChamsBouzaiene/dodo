@@ -41,3 +41,4 @@ ink-ui/GOOGLE_VIRTUALIZATION_ANALYSIS.md
 
 # Logs
 *.log
+.agent/
