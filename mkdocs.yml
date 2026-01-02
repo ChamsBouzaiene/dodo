@@ -1,0 +1,86 @@
+site_name: Dodo AI
+site_description: The Developer-First Local AI Coding Agent
+site_url: https://chamsbouzaiene.github.io/dodo/
+repo_url: https://github.com/ChamsBouzaiene/dodo
+repo_name: ChamsBouzaiene/dodo
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  logo: assets/logo.svg
+  favicon: assets/favicon.ico
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.action.edit
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - attr_list
+  - md_in_html
+
+plugins:
+  - search
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Configuration: getting-started/configuration.md
+    - First Steps: getting-started/first-steps.md
+  - Core Concepts:
+    - Agentic Workflow: concepts/agentic-workflow.md
+    - Semantic Indexing: concepts/indexing.md
+    - Sandboxing: concepts/sandboxing.md
+  - User Guide:
+    - CLI Reference: guides/cli-reference.md
+    - Modes: guides/modes.md
+    - Advanced Usage: guides/advanced.md
+  - Architecture:
+    - Overview: architecture/overview.md
+    - The Dodo Framework: architecture/framework.md
+    - Protocol: architecture/protocol.md
+    - Custom Tools: architecture/tools.md
+  - Contributing:
+    - Development Guide: contributing/development.md
+    - Release Process: contributing/releasing.md
