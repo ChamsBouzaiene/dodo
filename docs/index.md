@@ -6,6 +6,7 @@ hide:
 # Your AI Coding Partner, **On Your Terms.**
 
 <div align="center">
+  <img src="assets/logo.png" alt="Dodo Logo" width="120" />
   <p>
     <strong>Local-First • Sandboxed • Model-Agnostic</strong>
   </p>

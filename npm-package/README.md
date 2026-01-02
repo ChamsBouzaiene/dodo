@@ -1,4 +1,5 @@
 <div align="center">
+  <img src="https://raw.githubusercontent.com/ChamsBouzaiene/dodo/main/docs/assets/logo.png" alt="Dodo Logo" width="120" />
   <h1>Dodo AI</h1>
   <p><strong>The Developer-First AI Coding Agent</strong></p>
   <p>Local-First • Sandboxed • Model-Agnostic</p>

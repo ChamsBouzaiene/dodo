@@ -1,8 +1,15 @@
 # Dodo
 
+<div align="center">
+  <img src="docs/assets/logo.png" alt="Dodo Logo" width="120" />
+  <h1>Dodo AI</h1>
+</div>
+
 An open-source AI coding agent built in Go.
 
 Dodo helps you build, refactor, and understand codebases through natural language. It combines LLM reasoning with tools for code manipulation, semantic search, and sandboxed execution—all running locally on your machine.
+
+![Dodo Demo](docs/images/demo_run.png)
 
 ## Why Dodo?
 
@@ -14,7 +21,8 @@ Dodo helps you build, refactor, and understand codebases through natural languag
 | **Architecture** | Go backend + React terminal UI | Closed | Closed |
 
 **Built differently:**
-- Written in pure Go by a single developer—no heavy agent frameworks
+- **Zero Dependencies**: Built with **NO LangChain** or agent frameworks—just pure Go and the OpenAI SDK.
+- **Custom Engine**: I built my own LLM engine from scratch with advanced agentic patterns and lifecycle hooks.
 - Your code stays on your machine
 - Simple enough to understand, fork, and extend
 - Commands run in Docker containers, not directly on your host
