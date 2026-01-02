@@ -59,7 +59,7 @@ Most AI coding tools are either:
 ```mermaid
 graph LR
     subgraph Your Machine
-        UI[Terminal UI] <--> Engine[Dodo Engine (Go)]
+        UI[Terminal UI] <--> Engine["Dodo Engine (Go)"]
         Engine <--> Index[SQLite Vector DB]
         Engine <--> Docker[Docker Sandbox]
     end
